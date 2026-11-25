@@ -21,3 +21,10 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run build
+
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v6
+        with:
+          name: tetris-build
+          path: dist/
+          if-no-files-found: error
